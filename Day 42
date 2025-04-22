@@ -1,0 +1,33 @@
+mokeBeast = {"name": None, "type": None, "special move": None, "starting HP": None, "starting MP": None}
+
+type = ["earth", "fire", "water", "air", "spirit"]
+
+def colour_change (type):
+  if type.lower() == "earth":
+    print('\033[0;33m', end='') #change to brown
+  elif type.lower() == "fire":
+    print('\033[0;31m', end='') #change to red
+  elif type.lower() == "air":
+    print('\033[0m', end='') #change to default
+  elif type.lower() == "water":
+    print('\033[1;34m', end='') #change to light blue
+  elif type.lower() == "spirit":
+    print('\033[0;35m', end='') #change to purple
+
+print("MokeBeast")
+print()
+
+for beast, value in mokeBeast.items():
+  while True:
+    mokeBeast[beast] = input(f"{beast}: ").lower()
+    if beast == "type" and mokeBeast["type"] not in type:
+      print("Beast types are: Earth, Fire, Water, Air, Spirit")
+    else:
+      break
+  
+
+colour_change(mokeBeast["type"])
+
+print()
+for beast, value in mokeBeast.items():
+  print(f"{beast:<20}: {value}")
